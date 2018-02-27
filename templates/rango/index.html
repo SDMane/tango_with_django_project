@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load staticfiles %} 
-<!-- The curly brackets followed by the exclamation we wish to show that the image located in the static media directory called images/rango.jpgshow -->
+
+
 <html>
 	<head>
 		<title>Rango</title>
@@ -14,9 +15,20 @@
 			</div>
 
 			<div>
-				<a href="/rango/about/">About</a><br />
-				<img src="{%static "images/rango.jpg" %}"
-					alt="Picture of Rango" />
+			{% if categories %}
+			<ul>
+				{% for category in categories %}
+					<li>{{category.name}}</li>
+				{% endfor %})
+			</ul>
+			{% else %}
+				<strong>There are no categoires present.</strong>
+			{% endif %}
+			</div>
+
+			<div>
+				<a href="/rango/about/">About Rango</a><br />
+				<img src="{%static "images/rango.jpg" %}" alt="Picture of Rango" />
 			</div>
 	</body>
 </html>
